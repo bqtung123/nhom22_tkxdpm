@@ -5,6 +5,7 @@ import entity.bike.Bike;
 public class RentalBike {
 	private Bike bike;
 	private int deposit;
+	private int time;
 	
 	
 	
@@ -29,6 +30,16 @@ public class RentalBike {
 	}
 	public void setDeposit(int deposit) {
 		this.deposit = deposit;
+	}
+
+
+	public int getTime() {
+		return time;
+	}
+
+
+	public void setTime(int time) {
+		this.time = time;
 	}
 	
 

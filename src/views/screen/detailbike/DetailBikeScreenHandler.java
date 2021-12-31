@@ -65,7 +65,7 @@ public class DetailBikeScreenHandler extends BaseScreenHandler implements Initia
 		Rental rental=Rental.getRentalInstance();
 		List<RentalBike> rentalBikesList= rental.getListBikes();
 		for(RentalBike rb: rentalBikesList){
-			System.out.println(rb.getBike().getName());
+			System.out.println(rb.getBike().getName()+" "+ rb.getTime());
 		};
 		BaseScreenHandler invoiceScreen = new InvoiceScreenHandler(this.stage, Configs.INVOICE_SCREEN_PATH, new Invoice(rentalBike.getDeposit()));
 		invoiceScreen.setBController(new PaymentController());
