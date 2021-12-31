@@ -3,7 +3,11 @@ package entity.db;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.logging.Logger;
+
+import entity.bike.Bike;
 
 import utils.*;
 
@@ -28,7 +32,19 @@ public class AIMSDB {
     }
     
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 //        AIMSDB.getConnection();
+    	  Statement stm = AIMSDB.getConnection().createStatement();
+          ResultSet res = stm.executeQuery("select * from Bike");
+          ArrayList medium = new ArrayList<>();
+          while (res.next()) {
+              Bike bike = new Bike();
+                bike.setName(res.getString("name"));
+                bike.setType(res.getString("type"));
+                bike.setLicense(res.getString("license"));
+                bike.setProducer(res.getString("producer"));
+              System.out.println(bike.getName()+" "+bike.getType()+" "+ bike.getLicense());
+              medium.add(bike);
+          }
     }
 }

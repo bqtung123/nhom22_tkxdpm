@@ -16,6 +16,7 @@ import utils.Configs;
 //import views.screen.home.HomeScreenHandler;
 import views.screen.BaseScreenHandler;
 import views.screen.home.HomeScreenHandler;
+import views.screen.invoice.InvoiceScreenHandler;
 import views.screen.payment.PaymentScreenHandler;
 
 public class App extends Application {
@@ -60,14 +61,14 @@ public class App extends Application {
 			fadeOut.setOnFinished((e) -> {
 				try {
 					//display home
-//					HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
-//					homeHandler.setScreenTitle("Home Screen");
-////				homeHandler.setImage();
-//					homeHandler.show();
-					BaseScreenHandler paymentScreen = new PaymentScreenHandler(primaryStage, Configs.PAYMENT_SCREEN_PATH, new Invoice(5));
-					paymentScreen.setBController(new PaymentController());
-					paymentScreen.setScreenTitle("Payment Screen");
-					paymentScreen.show();
+					HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
+					homeHandler.setScreenTitle("Home Screen");
+
+					homeHandler.show();
+					
+
+
+					
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}

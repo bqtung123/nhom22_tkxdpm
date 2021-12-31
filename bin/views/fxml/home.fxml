@@ -6,6 +6,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="sayHello" layoutX="251.0" layoutY="148.0" mnemonicParsing="false" onAction="#sayHello" text="Button" />
+      <Button fx:id="detailButton" layoutX="279.0" layoutY="526.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Detail" />
+      <TableView fx:id="tvBike" layoutX="156.0" layoutY="85.0" prefHeight="361.0" prefWidth="376.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
+            <TableColumn fx:id="colLicense" prefWidth="75.0" text="License" />
+            <TableColumn fx:id="colProducer" prefWidth="75.0" text="Producer" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

@@ -43,60 +43,29 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 	@FXML
 	private Label instructions;
 
-	@FXML
-	private Label subtotal;
 
 	@FXML
-	private Label shippingFees;
+	private Label rentalFees;
 
-	@FXML
-	private Label total;
-
-	@FXML
-	private VBox vboxItems;
 
 	private Invoice invoice;
 
 	public InvoiceScreenHandler(Stage stage, String screenPath, Invoice invoice) throws IOException {
 		super(stage, screenPath);
 		this.invoice = invoice;
-//		setInvoiceInfo();
+		setInvoiceInfo();
 	}
 
-//	private void setInvoiceInfo(){
-//		HashMap<String, String> deliveryInfo = invoice.getOrder().getDeliveryInfo();
-//		// set information invoice
-//		name.setText(deliveryInfo.get("name"));
-//		province.setText(deliveryInfo.get("province"));
-//		instructions.setText(deliveryInfo.get("instructions"));
-//		address.setText(deliveryInfo.get("address"));
-//		
-//		//
-//		subtotal.setText(Utils.getCurrencyFormat(invoice.getOrder().getAmount()));
-//		shippingFees.setText(Utils.getCurrencyFormat(invoice.getOrder().getShippingFees()));
-//		int amount = invoice.getOrder().getAmount() + invoice.getOrder().getShippingFees();
-//		total.setText(Utils.getCurrencyFormat(amount));
-//		invoice.setAmount(amount);
-//		invoice.getOrder().getlstOrderMedia().forEach(orderMedia -> {
-//			try {
-//				MediaInvoiceScreenHandler mis = new MediaInvoiceScreenHandler(Configs.INVOICE_MEDIA_SCREEN_PATH);
-//				mis.setOrderMedia((OrderMedia) orderMedia);
-//				vboxItems.getChildren().add(mis.getContent());
-//			} catch (IOException | SQLException e) {
-//				System.err.println("errors: " + e.getMessage());
-//				throw new ProcessInvoiceException(e.getMessage());
-//			}
-//			
-//		});
-//
-//	}
+	private void setInvoiceInfo(){
+		rentalFees.setText(String.valueOf(invoice.getAmount())+" ");
+
+	}
 
 	@FXML
 	void confirmInvoice(MouseEvent event) throws IOException {
 		BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, invoice);
 		paymentScreen.setBController(new PaymentController());
 		paymentScreen.setPreviousScreen(this);
-//		paymentScreen.setHomeScreenHandler(homeScreenHandler);
 		paymentScreen.setScreenTitle("Payment Screen");
 		paymentScreen.show();
 		LOGGER.info("Confirmed invoice");

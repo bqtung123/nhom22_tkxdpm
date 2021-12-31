@@ -1,6 +1,8 @@
 package entity.bike;
 
 public class Bike {
+	private int id;
+
 	private String name;
 	private String type;
 	private int weight;
@@ -8,6 +10,32 @@ public class Bike {
 	private String createdAt;
 	private String producer;
 	private int cost;
+	private int parkId;
+	
+	public Bike() {}
+
+	public Bike(String name, String type,String license, String producer) {
+		this.name = name;
+		this.type = type;
+		this.license = license;
+		this.producer = producer;
+	}
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getParkId() {
+		return parkId;
+	}
+
+	public void setParkId(int parkId) {
+		this.parkId = parkId;
+	}
 	public String getName() {
 		return name;
 	}
