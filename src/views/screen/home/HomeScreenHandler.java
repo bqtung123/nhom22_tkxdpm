@@ -14,6 +14,7 @@ import java.util.ResourceBundle;
 import java.util.logging.Logger;
 
 import common.exception.ViewCartException;
+import controller.AddBikeController;
 import controller.BaseController;
 import controller.RentalBikesController;
 import entity.bike.Bike;
@@ -40,7 +41,9 @@ import javafx.stage.Stage;
 import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
+import views.screen.addBike.AddBikeHandle;
 import views.screen.detailbike.DetailBikeScreenHandler;
+import views.screen.*;
 
 
 
@@ -126,6 +129,16 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 		colLicense.setCellValueFactory(new PropertyValueFactory<Bike, String>("license"));
 		colProducer.setCellValueFactory(new PropertyValueFactory<Bike, String>("producer"));
 		tvBike.setItems(bikes);
+	}
+	
+	
+	@FXML
+	public void buttonAddBikeScreenAction(ActionEvent event) throws IOException {
+		BaseScreenHandler addBikeScreen = new AddBikeHandle(this.stage, Configs.ADD_BIKE_PATH);
+		addBikeScreen.setBController(new AddBikeController());
+		addBikeScreen.setScreenTitle("Add Bike Screen");
+		addBikeScreen.show();
+		
 	}
     
     

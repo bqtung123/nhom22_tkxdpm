@@ -16,5 +16,6 @@
             <TableColumn fx:id="colProducer" prefWidth="75.0" text="Producer" />
         </columns>
       </TableView>
+      <Button fx:id="buttonAddBikeScreen" layoutX="1032.0" layoutY="85.0" mnemonicParsing="false" onAction="#buttonAddBikeScreenAction" text="Thêm xe mới" />
    </children>
 </AnchorPane>

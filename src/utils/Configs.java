@@ -52,6 +52,7 @@ public class Configs {
 	public static final String HOME_MEDIA_PATH = "/views/fxml/media_home.fxml";
 	public static final String POPUP_PATH = "/views/fxml/popup.fxml";
 	public static final String DETAIL_BIKE_PATH = "/views/fxml/detail_bike.fxml";
+	public static final String ADD_BIKE_PATH = "/views/fxml/addBike.fxml";
 
 	public static Font REGULAR_FONT = Font.font("Segoe UI", FontWeight.NORMAL, FontPosture.REGULAR, 24);
 

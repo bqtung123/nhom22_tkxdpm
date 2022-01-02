@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="686.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="okNotiAdd" layoutX="280.0" layoutY="231.0" mnemonicParsing="false" onAction="#okNotiAddAction" prefHeight="31.0" prefWidth="127.0" text="OK" />
+      <Text layoutX="204.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Thêm thành công" textAlignment="CENTER">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      
+   </children>
+</AnchorPane>
