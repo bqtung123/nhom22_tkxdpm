@@ -15,9 +15,11 @@ import javafx.util.Duration;
 import utils.Configs;
 //import views.screen.home.HomeScreenHandler;
 import views.screen.BaseScreenHandler;
+import views.screen.home.HomeScreenByHoan;
 import views.screen.home.HomeScreenHandler;
 import views.screen.invoice.InvoiceScreenHandler;
 import views.screen.payment.PaymentScreenHandler;
+import views.screen.returnbike.ChooseBikeParkScreenHandler;
 
 public class App extends Application {
 
@@ -61,7 +63,8 @@ public class App extends Application {
 			fadeOut.setOnFinished((e) -> {
 				try {
 					//display home
-					HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
+			//		HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
+					HomeScreenByHoan homeHandler = new HomeScreenByHoan(primaryStage, "/views/fxml/homeByHoan.fxml");
 					homeHandler.setScreenTitle("Home Screen");
 
 					homeHandler.show();
