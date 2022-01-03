@@ -31,6 +31,10 @@ public class Park {
 	public void setMaxBike(int maxBike) {
 		this.maxBike = maxBike;
 	}
+	@Override
+	public String toString() {
+		return name;
+	}
 	
 	
 
