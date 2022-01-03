@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="522.0" prefWidth="792.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+
+   <children>
+      <Text layoutX="402.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vui lòng chọn xe và bãi xe để trả :" wrappingWidth="252.6708984375" />
+      <ComboBox fx:id="CbxBikeList" layoutX="510.0" layoutY="177.0" prefHeight="31.0" prefWidth="220.0" />
+      <Text layoutX="510.0" layoutY="281.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chọn bãi xe:" wrappingWidth="107.6708984375" />
+      <Text layoutX="510.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Chọn xe :" wrappingWidth="77.25244140625" />
+      <ComboBox fx:id="CbxParkList" layoutX="510.0" layoutY="302.0" prefHeight="31.0" prefWidth="220.0" />
+      <ImageView fitHeight="64.0" fitWidth="77.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+       <image>
+            <Image url="@../../../assets/images/ecobike.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="262.0" fitWidth="374.0" layoutX="46.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@../../../assets/images/bike.jpg" />
+         </image>
+      </ImageView>
+      <Button id="buttonChooseReturn" fx:id="buttonChooseReturn" layoutX="350.0" layoutY="440.0" mnemonicParsing="false" onAction="#chooseBikeToReturn" prefHeight="41.0" prefWidth="108.0" text="Xác nhận" />
+   </children>
+</AnchorPane>
