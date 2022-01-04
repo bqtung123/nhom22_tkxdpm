@@ -50,7 +50,7 @@
                   <Insets left="10.0" />
                </GridPane.margin>
             </Label>
-            <Label fx:id="rentalFees" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="500.0" text="70,000 đ" textFill="#ff0009" GridPane.columnIndex="1">
+            <Label fx:id="rentalFees" alignment="CENTER_RIGHT" prefHeight="200.0" prefWidth="500.0" text="70,000 " textFill="#ff0009" GridPane.columnIndex="1">
                <font>
                   <Font name="Segoe UI Bold" size="24.0" />
                </font>
