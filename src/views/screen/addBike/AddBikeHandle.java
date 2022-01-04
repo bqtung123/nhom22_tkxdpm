@@ -89,7 +89,7 @@ public class AddBikeHandle extends BaseScreenHandler implements Initializable{
 //			}
 //		});
 		
-		NotiAdd.Display(this.stage, null);
+		NotiAdd.Display(this.stage, null,parkId);
 	}
 	
 

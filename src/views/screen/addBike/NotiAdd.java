@@ -17,7 +17,7 @@ public class NotiAdd {
 	
 //	public static Stage stagee;
 	
-	public static void Display(Stage stagee, String message) {
+	public static void Display(Stage stagee, String message,int parkId) {
 		Stage window = new Stage();
 		window.initModality(Modality.APPLICATION_MODAL);
 		window.setTitle("Thêm thành công");
@@ -28,7 +28,7 @@ public class NotiAdd {
 		button.setOnAction(e -> {
 			HomeScreenHandler homeHandler;
 			try {
-				homeHandler = new HomeScreenHandler(stagee, Configs.HOME_PATH);
+				homeHandler = new HomeScreenHandler(stagee, Configs.HOME_PATH,parkId);
 				homeHandler.setScreenTitle("Home Screen");
 				homeHandler.show();
 				window.close();
