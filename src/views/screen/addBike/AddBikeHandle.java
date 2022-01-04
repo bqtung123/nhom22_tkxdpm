@@ -45,10 +45,11 @@ public class AddBikeHandle extends BaseScreenHandler implements Initializable{
 	
 	private Bike bike;
 	
-	
+	private int parkId;
 
-	public AddBikeHandle(Stage stage, String screenPath) throws IOException {
+	public AddBikeHandle(Stage stage, String screenPath,int parkId) throws IOException {
 		super(stage, screenPath);
+		this.parkId=parkId;
 	}
 
 	@Override
@@ -65,7 +66,7 @@ public class AddBikeHandle extends BaseScreenHandler implements Initializable{
 		addBikeController.setBikeType(addBike_type.getText());
 		addBikeController.setBikeLicense(addBike_license.getText());
 		addBikeController.setBikeProducer(addBike_producer.getText());
-		
+		addBikeController.setBikeParkId(parkId);
 		addBikeController.AddBikeToDB();
 
 //		Stage window = new Stage();

@@ -72,22 +72,32 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     @FXML
     private TableColumn<Bike, String> colProducer;
     
+    private int idPark;
     
+
+    public HomeScreenHandler(Stage stage, String screenPath,int idPark) throws IOException{
+        super(stage, screenPath);
+        this.idPark = idPark;
+     
+        try {
+    		showBikes();
+    	} catch (SQLException e) {
+    		// TODO Auto-generated catch block
+    		e.printStackTrace();
+    	}
+     
+    }
+
 
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
         super(stage, screenPath);
+      
     }
-
  
 
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
-     try {
-		showBikes();
-	} catch (SQLException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+   
     }
   
 		@FXML
@@ -105,7 +115,8 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 	public ObservableList<Bike> getBikesList() throws SQLException{
 		ObservableList<Bike> bikeList = FXCollections.observableArrayList();
 		  Statement stm = AIMSDB.getConnection().createStatement();
-          ResultSet res = stm.executeQuery("select * from Bike");
+		  String queryString = "select * from Bike where parkId =" +idPark;
+          ResultSet res = stm.executeQuery(queryString);
          
           while (res.next()) {
                 Bike bike = new Bike();
@@ -134,7 +145,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 	
 	@FXML
 	public void buttonAddBikeScreenAction(ActionEvent event) throws IOException {
-		BaseScreenHandler addBikeScreen = new AddBikeHandle(this.stage, Configs.ADD_BIKE_PATH);
+		BaseScreenHandler addBikeScreen = new AddBikeHandle(this.stage, Configs.ADD_BIKE_PATH,idPark);
 		addBikeScreen.setBController(new AddBikeController());
 		addBikeScreen.setScreenTitle("Add Bike Screen");
 		addBikeScreen.show();
