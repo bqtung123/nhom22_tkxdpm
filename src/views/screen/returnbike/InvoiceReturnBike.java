@@ -55,6 +55,8 @@ public class InvoiceReturnBike extends BaseScreenHandler implements Initializabl
 //	private Invoice invoice;
 	public InvoiceReturnBike(Stage stage, String screenPath, RentalBike bike, Park park) throws IOException {
 		super(stage, screenPath);
+		stage.setX(50);
+		stage.setY(50);
 		this.bike = bike;
 		this.park = park;
 		lbNameBike.setText(bike.getBike().getName());
@@ -62,7 +64,14 @@ public class InvoiceReturnBike extends BaseScreenHandler implements Initializabl
 		lbPark.setText(park.getName());
 		lbTimeThue.setText(Integer.toString(bike.getTime()));
 		lbTienCoc.setText(Integer.toString(bike.getDeposit()));
-		rentalFees.setText(Integer.toString(getFee()));
+		if(getFee() > 0) {
+			rentalFees.setText(Integer.toString(getFee()));
+			lbHoanTien.setText("Hoàn tiền:");
+		} else {
+			rentalFees.setText(Integer.toString(-1 * getFee()));
+			lbHoanTien.setText("Phải trả thêm:");
+		}
+		
 		
 	}
 	
@@ -72,7 +81,12 @@ public class InvoiceReturnBike extends BaseScreenHandler implements Initializabl
 	}
 	@FXML
 	void confirmInvoice(MouseEvent event) throws IOException {
-		BaseScreenHandler paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, new Invoice(getFee()));
+		BaseScreenHandler paymentScreen;
+		if(getFee() > 0) {
+			  paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, new Invoice(getFee()));	
+		} else {
+			  paymentScreen = new PaymentScreenHandler(this.stage, Configs.PAYMENT_SCREEN_PATH, new Invoice(-1 * getFee()));
+		}
 		Rental rental = Rental.getRentalInstance();
 		rental.removeRentalBikes(bike);
 		paymentScreen.setBController(new PaymentController());

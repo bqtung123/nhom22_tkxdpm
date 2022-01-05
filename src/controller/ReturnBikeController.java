@@ -21,7 +21,9 @@ public class ReturnBikeController extends BaseController {
 		Integer fee = rentalBike.getDeposit();
 		if(rentalBike.getTime() < 12){
 		 fee = rentalBike.getDeposit() - rentalBike.getTime() * 2000;
-		} 
+		} else {
+		 fee = rentalBike.getDeposit() - (rentalBike.getTime() - 12) * 4000 - 24000;
+		}
 		return fee;
 	}
 }
