@@ -42,6 +42,7 @@ import utils.Configs;
 import utils.Utils;
 import views.screen.BaseScreenHandler;
 import views.screen.addBike.AddBikeHandle;
+import views.screen.addPark.AddParkHandle;
 import views.screen.detailbike.DetailBikeScreenHandler;
 import views.screen.*;
 
@@ -138,6 +139,15 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 		addBikeScreen.setBController(new AddBikeController());
 		addBikeScreen.setScreenTitle("Add Bike Screen");
 		addBikeScreen.show();
+		
+	}
+	
+	@FXML
+	public void buttonAddParkScreenAction(ActionEvent event) throws IOException {
+		BaseScreenHandler addParkScreen = new AddParkHandle(this.stage, Configs.ADD_PARK_PATH);
+		addParkScreen.setBController(new AddBikeController());
+		addParkScreen.setScreenTitle("Add Park Screen");
+		addParkScreen.show();
 		
 	}
     

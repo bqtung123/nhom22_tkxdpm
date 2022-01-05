@@ -17,5 +17,6 @@
         </columns>
       </TableView>
       <Button fx:id="buttonAddBikeScreen" layoutX="1032.0" layoutY="85.0" mnemonicParsing="false" onAction="#buttonAddBikeScreenAction" text="Thêm xe mới" />
+      <Button fx:id="buttonAddParkScreen" layoutX="1000.0" layoutY="70.0" mnemonicParsing="false" onAction="#buttonAddParkScreenAction" text="Thêm Bãi xe mới" />
    </children>
 </AnchorPane>

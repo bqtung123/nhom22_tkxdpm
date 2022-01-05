@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="addParkButton" layoutX="423.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="127.0" text="Add" />
+      <Label layoutX="252.0" layoutY="203.0" text="Id" />
+      <Label layoutX="256.0" layoutY="279.0" text="Name" />
+      <Label layoutX="256.0" layoutY="362.0" text="Address" />
+      <Label layoutX="251.0" layoutY="438.0" text="MaxBike" />
+      <TextField fx:id="addPark_id" layoutX="393.0" layoutY="198.0" prefHeight="31.0" prefWidth="297.0" />
+      <TextField fx:id="addPark_name" layoutX="393.0" layoutY="274.0" prefHeight="31.0" prefWidth="297.0" />
+      <TextField fx:id="addPark_Address" layoutX="393.0" layoutY="357.0" prefHeight="31.0" prefWidth="297.0" />
+      <TextField fx:id="addPark_maxBike" layoutX="393.0" layoutY="433.0" prefHeight="31.0" prefWidth="297.0" />
+      <Label layoutX="85.0" layoutY="29.0" prefHeight="46.0" prefWidth="187.0" text="THÊM BÃI XE ĐẠP" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      
+   </children>
+</AnchorPane>
