@@ -12,6 +12,7 @@ public class AddBikeController extends BaseController {
 	public String bikeType;
 	public String bikeLicense;
 	public String bikeProducer;
+	public String bikeCost;
 	public int bikeParkId;
 	
 	public int getBikeParkId() {
@@ -48,25 +49,37 @@ public class AddBikeController extends BaseController {
 		return this.bikeProducer;
 	}
 	
+	public void setBikeCost(String bikeCost){
+		this.bikeCost = bikeCost;
+	}
+	public String getBikeCost() {
+		return this.bikeCost;
+	}
+	
 	//methods
-	public void AddBikeToDB() throws SQLException {
-//		Statement stm = AIMSDB.getConnection().createStatement();
-//        ResultSet res = stm.executeQuery("INSERT INTO Bike (id, COLUMN_2,..) VALUES (VALUE_1,VALUE_2,..)");
-        
-     // the mysql insert statement
-        String query = " insert into Bike (name, type, license, producer,parkId)"
-          + " values (?, ?, ?, ?,?)";
+	public boolean AddBikeToDB() throws SQLException {
+		if(bikeCost == "" || bikeName == "" || bikeLicense == "" || bikeProducer == "" || bikeType == "") {
+			return false;
+		} else {
 
-        // create the mysql insert preparedstatement
-        PreparedStatement preparedStmt = AIMSDB.getConnection().prepareStatement(query);
-        preparedStmt.setString(1, this.getBikeName());
-        preparedStmt.setString(2, this.getBikeType());
-        preparedStmt.setString(3, this.getBikeLicense());
-        preparedStmt.setString(4, this.getBikeProducer());
-        preparedStmt.setInt(5, this.getBikeParkId());
+	        String query = " insert into Bike (name, type, license, producer, cost, parkId)"
+	          + " values (?, ?, ?, ?, ?, ?)";
 
-        // execute the preparedstatement
-        preparedStmt.execute();
+	        // create the mysql insert preparedstatement
+	        PreparedStatement preparedStmt = AIMSDB.getConnection().prepareStatement(query);
+	        preparedStmt.setString(1, this.getBikeName());
+	        preparedStmt.setString(2, this.getBikeType());
+	        preparedStmt.setString(3, this.getBikeLicense());
+	        preparedStmt.setString(4, this.getBikeProducer());
+	        preparedStmt.setInt(5, Integer.parseInt(this.getBikeCost()));
+	        preparedStmt.setInt(6, this.getBikeParkId());
+
+	        // execute the preparedstatement
+	        preparedStmt.execute();
+	        
+	        return true;
+		}
+		
 	}
 	
 //	"id"	INTEGER,
