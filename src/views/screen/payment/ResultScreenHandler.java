@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
-import views.screen.home.HomeScreenByHoan;
+import views.screen.detailpark.DetailParkScreenHandler;
 import views.screen.home.HomeScreenHandler;
 
 public class ResultScreenHandler extends BaseScreenHandler {
@@ -40,8 +40,7 @@ public class ResultScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	void confirmPayment(MouseEvent event) throws IOException {
-//		homeScreenHandler.show();
-		HomeScreenByHoan homeHandler = new HomeScreenByHoan(this.stage, "/views/fxml/homeByHoan.fxml");
+		HomeScreenHandler homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_PATH);
 		homeHandler.setScreenTitle("Home Screen");
 
 		homeHandler.show();

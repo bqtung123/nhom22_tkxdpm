@@ -11,7 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import utils.Configs;
-import views.screen.home.HomeScreenHandler;
+import views.screen.detailpark.DetailParkScreenHandler;
 
 public class NotiAdd {
 	
@@ -26,9 +26,9 @@ public class NotiAdd {
 		
 		Button button = new Button("OK");
 		button.setOnAction(e -> {
-			HomeScreenHandler homeHandler;
+			DetailParkScreenHandler homeHandler;
 			try {
-				homeHandler = new HomeScreenHandler(stagee, Configs.HOME_PATH,parkId);
+				homeHandler = new DetailParkScreenHandler(stagee, Configs.DETAIL_PARK_PATH,parkId);
 				homeHandler.setScreenTitle("Home Screen");
 				homeHandler.show();
 				window.close();

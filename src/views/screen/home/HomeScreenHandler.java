@@ -1,156 +1,152 @@
 package views.screen.home;
 
-import java.io.File;
+
 import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.logging.Logger;
-
-import common.exception.ViewCartException;
-import controller.AddBikeController;
-import controller.BaseController;
 import controller.RentalBikesController;
-import entity.bike.Bike;
 import entity.db.AIMSDB;
+import entity.park.Park;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 import utils.Configs;
-import utils.Utils;
 import views.screen.BaseScreenHandler;
-import views.screen.addBike.AddBikeHandle;
-import views.screen.detailbike.DetailBikeScreenHandler;
-import views.screen.*;
-
-
+import views.screen.detailpark.DetailParkScreenHandler;
+import views.screen.returnbike.ChooseBikeParkScreenHandler;
 
 public class HomeScreenHandler extends BaseScreenHandler implements Initializable{
 
-    public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
+	 @FXML
+    private TableView<Park> tvPark;
+	    
+    @FXML
+    private TableColumn<Park, Integer> colId;
+    
+    @FXML
+    private TableColumn<Park, String> colName;
+    
+    @FXML
+    private TableColumn<Park, String> colAddress;
+    
+    @FXML
+    private TableColumn<Park, Integer> colMaxBike;
+    
+    @FXML
+    private TextField searchText;
 
-    @FXML
-    private Button detailButton;
-    
-    @FXML
-    private TableView<Bike> tvBike;
-    
-    @FXML
-    private TableColumn<Bike, Integer> colId;
-    
-    @FXML
-    private TableColumn<Bike, String> colName;
-    
-    @FXML
-    private TableColumn<Bike, String> colType;
-    
-    @FXML
-    private TableColumn<Bike, String> colLicense;
-    
-    @FXML
-    private TableColumn<Bike, String> colProducer;
-    
-    private int idPark;
-    
+	
+	
+	
+	
+	public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
+		super(stage, screenPath);
+		// TODO Auto-generated constructor stub
+	}
+	
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		  try {
+		    	 showPark();
+		 	} catch (SQLException e) {
+		 		// TODO Auto-generated catch block
+		 		e.printStackTrace();
+		 	}
+	}
+	
 
-    public HomeScreenHandler(Stage stage, String screenPath,int idPark) throws IOException{
-        super(stage, screenPath);
-        this.idPark = idPark;
-     
-        try {
-    		showBikes();
-    	} catch (SQLException e) {
-    		// TODO Auto-generated catch block
-    		e.printStackTrace();
-    	}
-     
-    }
-
-
-    public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
-        super(stage, screenPath);
-      
-    }
- 
-
-    @Override
-    public void initialize(URL arg0, ResourceBundle arg1) {
-   
-    }
-  
-		@FXML
-		public void handleButtonAction(ActionEvent event) throws IOException {
-			Bike bike= tvBike.getSelectionModel().getSelectedItem();
-			if(bike != null) {
-				BaseScreenHandler detailScreen = new DetailBikeScreenHandler(this.stage, Configs.DETAIL_BIKE_PATH, bike);
-				detailScreen.setBController(new RentalBikesController());
-				detailScreen.setScreenTitle("Detail Screen");
-				detailScreen.show();
-			}
-			
-		}
+	
+	public void showPark() throws SQLException {
+		ObservableList<Park> park = getParksList();
 		
-	public ObservableList<Bike> getBikesList() throws SQLException{
-		ObservableList<Bike> bikeList = FXCollections.observableArrayList();
+		colId.setCellValueFactory(new PropertyValueFactory<Park, Integer>("id"));
+		colName.setCellValueFactory(new PropertyValueFactory<Park, String>("name"));
+		colAddress.setCellValueFactory(new PropertyValueFactory<Park, String>("address"));
+		colMaxBike.setCellValueFactory(new PropertyValueFactory<Park, Integer>("maxBike"));
+		tvPark.setItems(park);
+	}
+	
+	public ObservableList<Park> getParksList() throws SQLException{
+		ObservableList<Park> parkList = FXCollections.observableArrayList();
 		  Statement stm = AIMSDB.getConnection().createStatement();
-		  String queryString = "select * from Bike where parkId =" +idPark;
+          ResultSet res = stm.executeQuery("select * from Park");
+         
+          while (res.next()) {
+                Park park = new Park();
+                park.setId(res.getInt("id"));
+                park.setName(res.getString("name"));
+                park.setAddress(res.getString("address"));
+                park.setMaxBike(res.getInt("maxBike"));
+          
+                parkList.add(park);
+	}
+          return parkList;
+	}
+    
+	@FXML
+	public void onActionThueXe(ActionEvent event) throws IOException {
+		    Park park= tvPark.getSelectionModel().getSelectedItem();
+		   
+		    if(park!=null) {
+		    	BaseScreenHandler thueXe = new DetailParkScreenHandler(this.stage, Configs.DETAIL_PARK_PATH,park.getId());
+				thueXe.setBController(new RentalBikesController());
+				thueXe.setScreenTitle("Thuê xe");
+				thueXe.show();
+		    }
+		
+	}
+	@FXML
+	public void onActionTraXe(ActionEvent event) throws IOException {
+			BaseScreenHandler traXe = new ChooseBikeParkScreenHandler(this.stage, Configs.CHOOSE_PARK_BIKE_RETURN_PATH);
+			traXe.setBController(new RentalBikesController());
+			traXe.setScreenTitle("Trả xe");
+			traXe.show();
+	}
+	
+	@FXML
+	public void searchPark(ActionEvent event) throws IOException, SQLException {
+			String searchString = searchText.getText();
+			System.out.println(searchString);
+			showParkByName(searchString);
+	}
+	
+	public void showParkByName(String searchText) throws SQLException {
+		ObservableList<Park> park = getParksListByName(searchText);
+		
+		colId.setCellValueFactory(new PropertyValueFactory<Park, Integer>("id"));
+		colName.setCellValueFactory(new PropertyValueFactory<Park, String>("name"));
+		colAddress.setCellValueFactory(new PropertyValueFactory<Park, String>("address"));
+		colMaxBike.setCellValueFactory(new PropertyValueFactory<Park, Integer>("maxBike"));
+		tvPark.setItems(park);
+	}
+	
+	public ObservableList<Park> getParksListByName(String searchText) throws SQLException{
+		ObservableList<Park> parkList = FXCollections.observableArrayList();
+		  Statement stm = AIMSDB.getConnection().createStatement();
+		  String queryString ="select * from Park where name like '%"+ searchText+"%'";
           ResultSet res = stm.executeQuery(queryString);
          
           while (res.next()) {
-                Bike bike = new Bike();
-                bike.setId(res.getInt("id"));
-                bike.setName(res.getString("name"));
-                bike.setType(res.getString("type"));
-                bike.setLicense(res.getString("license"));
-                bike.setProducer(res.getString("producer"));
+                Park park = new Park();
+                park.setId(res.getInt("id"));
+                park.setName(res.getString("name"));
+                park.setAddress(res.getString("address"));
+                park.setMaxBike(res.getInt("maxBike"));
           
-              bikeList.add(bike);
+                parkList.add(park);
 	}
-          return bikeList;
-	}
-	
-	public void showBikes() throws SQLException {
-		ObservableList<Bike> bikes = getBikesList();
-		
-		colId.setCellValueFactory(new PropertyValueFactory<Bike, Integer>("id"));
-		colName.setCellValueFactory(new PropertyValueFactory<Bike, String>("name"));
-		colType.setCellValueFactory(new PropertyValueFactory<Bike, String>("type"));
-		colLicense.setCellValueFactory(new PropertyValueFactory<Bike, String>("license"));
-		colProducer.setCellValueFactory(new PropertyValueFactory<Bike, String>("producer"));
-		tvBike.setItems(bikes);
+          return parkList;
 	}
 	
 	
-	@FXML
-	public void buttonAddBikeScreenAction(ActionEvent event) throws IOException {
-		BaseScreenHandler addBikeScreen = new AddBikeHandle(this.stage, Configs.ADD_BIKE_PATH,idPark);
-		addBikeScreen.setBController(new AddBikeController());
-		addBikeScreen.setScreenTitle("Add Bike Screen");
-		addBikeScreen.show();
-		
-	}
-    
-    
 }

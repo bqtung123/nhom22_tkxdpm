@@ -26,7 +26,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import views.screen.BaseScreenHandler;
-import views.screen.home.HomeScreenHandler;
+import views.screen.detailpark.DetailParkScreenHandler;
 import views.screen.invoice.InvoiceScreenHandler;
 
 public class AddBikeHandle extends BaseScreenHandler implements Initializable{
@@ -84,7 +84,7 @@ public class AddBikeHandle extends BaseScreenHandler implements Initializable{
 	@FXML
 	public void cancelAddBike(ActionEvent event) throws IOException, SQLException {
 		   
-    	BaseScreenHandler thueXe = new HomeScreenHandler(this.stage, Configs.HOME_PATH, parkId);
+    	BaseScreenHandler thueXe = new DetailParkScreenHandler(this.stage, Configs.DETAIL_PARK_PATH, parkId);
 		thueXe.setBController(new RentalBikesController());
 		thueXe.setScreenTitle("Thuê xe");
 		thueXe.show();
@@ -99,9 +99,9 @@ public class AddBikeHandle extends BaseScreenHandler implements Initializable{
 		
 		Button button = new Button("OK");
 		button.setOnAction(e -> {
-			HomeScreenHandler homeHandler;
+			DetailParkScreenHandler homeHandler;
 			try {
-				homeHandler = new HomeScreenHandler(this.stage, Configs.HOME_PATH,parkId);
+				homeHandler = new DetailParkScreenHandler(this.stage, Configs.DETAIL_PARK_PATH,parkId);
 				homeHandler.setScreenTitle("Home Screen");
 				homeHandler.show();
 				window.close();
