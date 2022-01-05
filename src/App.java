@@ -1,25 +1,15 @@
 import java.io.IOException;
-
-import controller.PaymentController;
-import entity.invoice.Invoice;
 import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import utils.Configs;
-//import views.screen.home.HomeScreenHandler;
-import views.screen.BaseScreenHandler;
-import views.screen.home.HomeScreenByHoan;
 import views.screen.home.HomeScreenHandler;
-import views.screen.invoice.InvoiceScreenHandler;
-import views.screen.payment.PaymentScreenHandler;
-import views.screen.returnbike.ChooseBikeParkScreenHandler;
 
 public class App extends Application {
 
@@ -63,15 +53,9 @@ public class App extends Application {
 			fadeOut.setOnFinished((e) -> {
 				try {
 					//display home
-			//		HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
-					HomeScreenByHoan homeHandler = new HomeScreenByHoan(primaryStage, "/views/fxml/homeByHoan.fxml");
+					HomeScreenHandler homeHandler = new HomeScreenHandler(primaryStage, Configs.HOME_PATH);
 					homeHandler.setScreenTitle("Home Screen");
-
-					homeHandler.show();
-					
-
-
-					
+					homeHandler.show();					
 				} catch (IOException e1) {
 					e1.printStackTrace();
 				}

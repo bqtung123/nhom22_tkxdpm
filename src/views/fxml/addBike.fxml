@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button fx:id="addBikeButton" layoutX="423.0" layoutY="538.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="31.0" prefWidth="127.0" text="Add" />
-      <Label layoutX="252.0" layoutY="203.0" text="Name" />
-      <Label layoutX="256.0" layoutY="279.0" text="Type" />
-      <Label layoutX="256.0" layoutY="362.0" text="License" />
-      <Label layoutX="251.0" layoutY="438.0" text="Producer" />
-      <TextField fx:id="addBike_name" layoutX="393.0" layoutY="198.0" prefHeight="31.0" prefWidth="297.0" />
-      <TextField fx:id="addBike_type" layoutX="393.0" layoutY="274.0" prefHeight="31.0" prefWidth="297.0" />
-      <TextField fx:id="addBike_license" layoutX="393.0" layoutY="357.0" prefHeight="31.0" prefWidth="297.0" />
-      <TextField fx:id="addBike_producer" layoutX="393.0" layoutY="433.0" prefHeight="31.0" prefWidth="297.0" />
-      <Label layoutX="85.0" layoutY="29.0" prefHeight="46.0" prefWidth="187.0" text="THÊM XE ĐẠP" textAlignment="CENTER">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font>
-      </Label>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FCE0A6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		
+		<Label layoutX="263.0" layoutY="214.0" text="Name" />
+	    <Label layoutX="276.0" layoutY="288.0" text="Type" />
+		<Label layoutX="258.0" layoutY="366.0" text="License" />
+		<Label layoutX="252.0" layoutY="437.0" text="Producer" />
+		<TextField fx:id="addBike_name" layoutX="386.0" layoutY="209.0" prefHeight="31.0" prefWidth="432.0" />
+		<TextField fx:id="addBike_type" layoutX="386.0" layoutY="283.0" prefHeight="31.0" prefWidth="432.0" />
+		<TextField fx:id="addBike_license" layoutX="386.0" layoutY="361.0" prefHeight="31.0" prefWidth="432.0" />
+		<TextField fx:id="addBike_producer" layoutX="386.0" layoutY="432.0" prefHeight="31.0" prefWidth="432.0" />
+		<Label layoutX="517.0" layoutY="52.0" prefHeight="46.0" prefWidth="187.0" text="THÊM XE ĐẠP" textAlignment="CENTER">
+	   		<font>
+	        	<Font name="System Bold" size="24.0" />
+	        </font>
+		</Label>
       
-   </children>
+	<Button fx:id="addBikeButton" layoutX="677.0" layoutY="585.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="148.0" style="-fx-background-color: #00FF00;" text="Thêm" textFill="WHITE">
+		<font>
+			<Font name="Comic Sans MS Italic" size="24.0" />
+		</font>
+	</Button>
+		<ImageView fitHeight="159.0" fitWidth="121.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../../assets/images/ecobike.png" />
+			</image>
+		</ImageView>
+      <Button fx:id="addBikeButton1" layoutX="454.0" layoutY="585.0" mnemonicParsing="false" onAction="#cancelAddBike" prefHeight="51.0" prefWidth="148.0" style="-fx-background-color: #C82E31;;" text="Hủy" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Italic" size="24.0" />
+         </font>
+      </Button>
+      <TextField fx:id="addBike_cost" layoutX="386.0" layoutY="506.0" prefHeight="31.0" prefWidth="432.0" />
+      <Label layoutX="277.0" layoutY="511.0" text="Cost" />
+	</children>
 </AnchorPane>

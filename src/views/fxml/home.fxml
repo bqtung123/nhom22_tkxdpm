@@ -1,22 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FCE0A6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button fx:id="detailButton" layoutX="279.0" layoutY="526.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Detail" />
-      <TableView fx:id="tvBike" layoutX="156.0" layoutY="85.0" prefHeight="361.0" prefWidth="376.0">
+      <Button fx:id="btnThueXe" layoutX="534.0" layoutY="602.0" mnemonicParsing="false" onAction="#onActionThueXe" prefHeight="60.0" prefWidth="298.0" style="-fx-background-color: #62e550;" text="Chi tiết bãi xe" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font></Button>
+      <Button fx:id="btnTraXe" layoutX="884.0" layoutY="24.0" mnemonicParsing="false" onAction="#onActionTraXe" prefHeight="60.0" prefWidth="155.0" style="-fx-background-color: #C82E31;" text="Trả xe" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="24.0" />
+         </font></Button>
+      <TableView fx:id="tvPark" layoutX="51.0" layoutY="175.0" prefHeight="358.0" prefWidth="1229.0">
         <columns>
-          <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="colName" prefWidth="75.0" text="Name" />
-            <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
-            <TableColumn fx:id="colLicense" prefWidth="75.0" text="License" />
-            <TableColumn fx:id="colProducer" prefWidth="75.0" text="Producer" />
+          <TableColumn fx:id="colId" prefWidth="143.0" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="387.0" text="Name" />
+            <TableColumn fx:id="colAddress" minWidth="0.0" prefWidth="395.0" text="Address" />
+            <TableColumn fx:id="colMaxBike" minWidth="0.0" prefWidth="303.0" text="MaxBike" />
         </columns>
       </TableView>
+<<<<<<< HEAD
       <Button fx:id="buttonAddBikeScreen" layoutX="1032.0" layoutY="85.0" mnemonicParsing="false" onAction="#buttonAddBikeScreenAction" text="Thêm xe mới" />
       <Button fx:id="buttonAddParkScreen" layoutX="1000.0" layoutY="70.0" mnemonicParsing="false" onAction="#buttonAddParkScreenAction" text="Thêm Bãi xe mới" />
+=======
+      <TextField fx:id="searchText" layoutX="152.0" layoutY="23.0" prefHeight="60.0" prefWidth="464.0" />
+      <Button layoutX="649.0" layoutY="24.0" mnemonicParsing="false" onAction="#searchPark" prefHeight="60.0" prefWidth="121.0" style="-fx-background-color: #62e550;" text="Search" textFill="#fcfcfc">
+         <font>
+            <Font name="Eras Bold ITC" size="24.0" />
+         </font></Button>
+      <ImageView fitHeight="73.0" fitWidth="73.0" layoutX="14.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+       <image>
+            <Image url="@../../../assets/images/ecobike.png" />
+         </image>
+         </ImageView>
+>>>>>>> 370e4309b59d234795b8441c4e608f38b2083f31
    </children>
 </AnchorPane>

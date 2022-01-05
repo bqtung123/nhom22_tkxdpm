@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FCE0A6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="detailButton" layoutX="591.0" layoutY="619.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: #62e550;" text="Detail" textFill="#eeeaea">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font></Button>
+      <TableView fx:id="tvBike" layoutX="85.0" layoutY="182.0" prefHeight="361.0" prefWidth="1196.0">
+        <columns>
+          <TableColumn fx:id="colId" prefWidth="62.0" text="ID" />
+          <TableColumn fx:id="colName" prefWidth="282.0" text="Name" />
+            <TableColumn fx:id="colType" prefWidth="264.0" text="Type" />
+            <TableColumn fx:id="colLicense" prefWidth="267.0" text="License" />
+            <TableColumn fx:id="colProducer" prefWidth="320.0" text="Producer" />
+        </columns>
+      </TableView>
+      <Button fx:id="buttonAddBikeScreen" layoutX="996.0" layoutY="47.0" mnemonicParsing="false" onAction="#buttonAddBikeScreenAction" style="-fx-background-color: #C82E31;" text="Thêm xe mới" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Italic" size="24.0" />
+         </font></Button>
+      <ImageView fitHeight="73.0" fitWidth="73.0" layoutX="14.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+             <Image url="@../../../assets/images/ecobike.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
