@@ -41,24 +41,44 @@ public class AddParkController extends BaseController {
 		return this.parkMax;
 	}
 	
+	private boolean check()
+	{
+		try
+	    {
+	        Integer.parseInt(this.getParkMaxBike());
+	        return true;
+	    } catch (NumberFormatException ex)
+	    {
+	        return false;
+	    }
+	}
+	
 	//methods
-	public void AddParkToDB() throws SQLException {
+	public boolean AddParkToDB() throws SQLException {
 //		Statement stm = AIMSDB.getConnection().createStatement();
 //        ResultSet res = stm.executeQuery("INSERT INTO Bike (id, COLUMN_2,..) VALUES (VALUE_1,VALUE_2,..)");
         
      // the mysql insert statement
-//        String query = " insert into Bike (id, name, address, maxBike)"
-//          + " values (?, ?, ?, ?)";
-//
-//        // create the mysql insert preparedstatement
-//        PreparedStatement preparedStmt = AIMSDB.getConnection().prepareStatement(query);
-//        preparedStmt.setString (1, this.getParkId());
-//        preparedStmt.setString (2, this.getParkName());
-//        preparedStmt.setString   (3, this.getParkAddress());
-//        preparedStmt.setString(4, this.getParkMaxBike());
-//
-//        // execute the preparedstatement
-//        preparedStmt.execute();
+		if(this.getParkName() == "" || this.getParkAddress() == "" || this.getParkMaxBike() == "" || !check())
+		{
+			return false;
+		}
+		else {
+			String query = " insert into Park (name, address, maxBike)"
+			          + " values (?, ?, ?)";
+
+	        // create the mysql insert preparedstatement
+	        PreparedStatement preparedStmt = AIMSDB.getConnection().prepareStatement(query);
+	        preparedStmt.setString (1, this.getParkName());
+	        preparedStmt.setString   (2, this.getParkAddress());
+	        preparedStmt.setInt(3, Integer.parseInt(this.getParkMaxBike()));
+
+	        // execute the preparedstatement
+	        preparedStmt.execute();
+	        
+	        return true;
+		}
+        
 	}
 	
 //	"id"	INTEGER,

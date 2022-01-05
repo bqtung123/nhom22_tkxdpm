@@ -56,9 +56,20 @@ public class AddBikeController extends BaseController {
 		return this.bikeCost;
 	}
 	
+	private boolean check() {
+		try
+	    {
+	        Integer.parseInt(this.getBikeCost());
+	        return true;
+	    } catch (NumberFormatException ex)
+	    {
+	        return false;
+	    }
+	}
+	
 	//methods
 	public boolean AddBikeToDB() throws SQLException {
-		if(bikeCost == "" || bikeName == "" || bikeLicense == "" || bikeProducer == "" || bikeType == "") {
+		if(bikeCost == "" || bikeName == "" || bikeLicense == "" || bikeProducer == "" || bikeType == "" || !check()) {
 			return false;
 		} else {
 
