@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" style="-fx-background-color: #FCE0A6;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		
+		<Button fx:id="addParkButton" layoutX="609.0" layoutY="544.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="51.0" prefWidth="148.0" style="-fx-background-color: #00FF00;" text="Thêm" textFill="WHITE">
+			<font>
+				<Font name="Comic Sans MS Italic" size="24.0" />
+			</font>
+		</Button>
+      <Label layoutX="256.0" layoutY="279.0" text="Name" />
+      <Label layoutX="256.0" layoutY="362.0" text="Address" />
+      <Label layoutX="251.0" layoutY="438.0" text="MaxBike" />
+      <TextField fx:id="addPark_name" layoutX="393.0" layoutY="274.0" prefHeight="31.0" prefWidth="297.0" />
+      <TextField fx:id="addPark_Address" layoutX="393.0" layoutY="357.0" prefHeight="31.0" prefWidth="297.0" />
+      <TextField fx:id="addPark_maxBike" layoutX="393.0" layoutY="433.0" prefHeight="31.0" prefWidth="297.0" />
+      <Label layoutX="411.0" layoutY="52.0" prefHeight="46.0" prefWidth="261.0" text="THÊM BÃI XE ĐẠP" textAlignment="CENTER">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      
+      <Button fx:id="addBikeButton1" layoutX="385.0" layoutY="544.0" mnemonicParsing="false" onAction="#cancelAddPark" prefHeight="51.0" prefWidth="148.0" style="-fx-background-color: #C82E31;;" text="Hủy" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Italic" size="24.0" />
+         </font>
+      </Button>
+      
+      <ImageView fitHeight="159.0" fitWidth="121.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+			<image>
+				<Image url="@../../../assets/images/ecobike.png" />
+			</image>
+		</ImageView>
+	</children>
+</AnchorPane>

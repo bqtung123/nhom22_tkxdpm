@@ -54,6 +54,7 @@ public class Configs {
 	public static final String POPUP_PATH = "/views/fxml/popup.fxml";
 	public static final String DETAIL_BIKE_PATH = "/views/fxml/detail_bike.fxml";
 	public static final String ADD_BIKE_PATH = "/views/fxml/addBike.fxml";
+	public static final String ADD_PARK_PATH = "/views/fxml/addPark.fxml";
 	public static final String CHOOSE_PARK_BIKE_RETURN_PATH = "/views/fxml/chooseReturnBike.fxml";
 	public static final String POPUP_RETURN_BIKE_PATH = "/views/fxml/popupReturnBike.fxml";
 	public static final String INVOICE_RETURN_BIKE_PATH = "/views/fxml/invoiceReturnBike.fxml";

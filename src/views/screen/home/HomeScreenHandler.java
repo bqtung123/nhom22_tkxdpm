@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+
+import controller.AddParkController;
 import controller.RentalBikesController;
 import entity.db.AIMSDB;
 import entity.park.Park;
@@ -22,6 +24,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import utils.Configs;
 import views.screen.BaseScreenHandler;
+import views.screen.addPark.AddParkHandle;
 import views.screen.detailpark.DetailParkScreenHandler;
 import views.screen.returnbike.ChooseBikeParkScreenHandler;
 
@@ -130,6 +133,15 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 		tvPark.setItems(park);
 	}
 	
+	@FXML
+	public void buttonAddParkScreenAction(ActionEvent event) throws IOException {
+		BaseScreenHandler addParkScreen = new AddParkHandle(this.stage, Configs.ADD_PARK_PATH);
+		addParkScreen.setBController(new AddParkController());
+		addParkScreen.setScreenTitle("Add Park Screen");
+		addParkScreen.show();
+		
+	}
+	
 	public ObservableList<Park> getParksListByName(String searchText) throws SQLException{
 		ObservableList<Park> parkList = FXCollections.observableArrayList();
 		  Statement stm = AIMSDB.getConnection().createStatement();
@@ -150,3 +162,5 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 	
 	
 }
+
+
